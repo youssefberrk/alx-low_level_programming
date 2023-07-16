@@ -26,7 +26,7 @@ int main(void)
 
 				if (firstDigit != 98 || seconDigit != 99)
 				{
-					putchar(' ');
+					putchar(',');
 					putchar(' ');
 				}
 			}
