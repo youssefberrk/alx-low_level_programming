@@ -50,7 +50,7 @@ int _strlen(char *s)
 	return (dest);
 }
 /**
- * new_dog - creates a new dog
+ * new_dog -  new dog
  * @name: name of the dog
  * @age: age of the dog
  * @owner: owner of the dog
