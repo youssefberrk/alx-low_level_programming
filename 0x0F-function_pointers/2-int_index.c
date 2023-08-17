@@ -1,18 +1,11 @@
 #include "function_pointers.h"
+
 /**
- * array_iterator - Iterate over an array and apply a given action to each element.
- * @array: Pointer to the array to iterate over.
- * @size: The number of elements in the array.
- * @action: A pointer to a function that performs an action on each array element.
- *
- * This function takes an array, its size, and a function pointer as arguments.
- * If the array and action function are not NULL, the function iterates through
- * the array and applies the provided action to each element.
- *
- * @array: Pointer to the array of integers to iterate over.
- * @size: The number of elements in the array.
- * @action: A pointer to a function that takes an integer argument and
- *          performs a specific action on it, as defined by the caller.
+ * int_index - Return the index where comparison returns true, else -1.
+ * @array: Array of integers.
+ * @size: Size of the array.
+ * @cmp: Pointer to a comparison function.
+ * Return: Index of element where comparison is true, or -1 if not found.
  */
 int int_index(int *array, int size, int (*cmp)(int))
 {
