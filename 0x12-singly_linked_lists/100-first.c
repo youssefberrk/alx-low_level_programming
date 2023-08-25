@@ -4,7 +4,7 @@
 void first(void) __attribute__ ((constructor));
 
 /**
- * first_print - Prints a message before the main function is executed
+ * first - Function executed before the main function
  *
  * This function is marked with the `constructor` attribute, ensuring that it
  * is automatically executed before the `main` function. It prints a message
