@@ -6,7 +6,7 @@ char *create_buffer(char *file);
 void close_file(int fd);
 
 /**
- * create_buffer - Allocates a 1024-byte buffer.
+ * create_buffer - Allocates 1024 bytes for a buffer.
  * @file: The name of the file for which the buffer is allocated.
  *
  * Return: A pointer to the newly-allocated buffer.
@@ -28,7 +28,7 @@ char *create_buffer(char *file)
 }
 
 /**
- * close_file - Closes a file descriptor.
+ * close_file - Closes file descriptors.
  * @fd: The file descriptor to be closed.
  */
 void close_file(int fd)
@@ -45,16 +45,17 @@ void close_file(int fd)
 }
 
 /**
- * main - Copies the contents of one file to another.
+ * main - Copies the contents of a file to another file.
  * @argc: The number of arguments supplied to the program.
  * @argv: An array of pointers to the arguments.
  *
  * Return: 0 on success.
  *
- * Description: If the argument count is incorrect, exit with code 97.
- * If the source file does not exist or cannot be read, exit with code 98.
- * If the destination file cannot be created or written to, exit with code 99.
- * If there are issues closing files, exit with code 100.
+ * Description:
+ *     - If the argument count is incorrect, exit with code 97.
+ *     - If the source file does not exist or cannot be read, exit with code 98.
+ *     - If the destination file cannot be created or written to, exit with code 99.
+ *     - If there are issues closing files, exit with code 100.
  */
 int main(int argc, char *argv[])
 {
@@ -71,8 +72,12 @@ int main(int argc, char *argv[])
 	from = open(argv[1], O_RDONLY);
 	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
-	while ((r = read(from, buffer, 1024)) > 0)
+	for (;;)
 	{
+		r = read(from, buffer, 1024);
+		if (r == 0)
+			break;
+
 		if (from == -1 || r == -1)
 		{
 			dprintf(STDERR_FILENO,
