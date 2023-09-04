@@ -73,16 +73,16 @@ int main(int argc, char *argv[])
 
 	while ((r = read(from, buffer, 1024)) > 0)
 	{
-		if (from == -1 || r == -1 || to == -1)
+		if (from == -1 || r == -1)
 		{
 			dprintf(STDERR_FILENO,
-					"Error: Can't read from file %s or write to %s\n", argv[1], argv[2]);
+					"Error: Can't read from file %s\n", argv[1]);
 			free(buffer);
 			exit(98);
 		}
 
 		w = write(to, buffer, r);
-		if (w == -1)
+		if (to == -1 || w == -1)
 		{
 			dprintf(STDERR_FILENO,
 					"Error: Can't write to %s\n", argv[2]);
