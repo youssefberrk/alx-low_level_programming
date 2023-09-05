@@ -5,8 +5,8 @@
 #include <unistd.h>
 
 /**
- * create_buffer - Allocates 1024 bytes for a buffer.
- * @file: The name of the file where the buffer stores characters for.
+ * create_buffer - Allocates a buffer of 1024 bytes.
+ * @file: The name of the file where the buffer stores characters.
  *
  * Return: A pointer to the newly-allocated buffer.
  */
@@ -26,7 +26,7 @@ char *create_buffer(char *file)
 }
 
 /**
- * close_file - Closes file descriptors.
+ * close_file - Closes a file descriptor.
  * @fd: The file descriptor to be closed.
  */
 void close_file(int fd)
@@ -37,7 +37,7 @@ void close_file(int fd)
 
 	if (c == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close file descriptor %d\n", fd);
 		exit(100);
 	}
 }
@@ -49,10 +49,10 @@ void close_file(int fd)
  *
  * Return: 0 on success.
  *
- * Description: If the argument count is incorrect, exit with code 97.
- * If the source file does not exist or cannot be read, exit with code 98.
- * If the destination file cannot be created or written to, exit with code 99.
- * If either the source or destination file cannot be closed, exit with code 100.
+ * Description: Exits with code 97 if the argument count is incorrect.
+ * Exits with code 98 if the source file does not exist or cannot be read.
+ * Exits with code 99 if the destination file cannot be created or written to.
+ * Exits with code 100 if either the source/destination file cannot be closed.
  */
 int main(int argc, char *argv[])
 {
