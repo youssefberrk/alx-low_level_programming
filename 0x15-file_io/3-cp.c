@@ -50,10 +50,10 @@ void close_file(int fd)
  * Return: 0 on success, or an exit code on failure.
  *
  * Description:
- *     Exits with code 97 if the argument count is incorrect.
- *     Exits with code 98 if the source file is inaccessible.
- *     Exits with code 99 if the destination file can't be written.
- *     Exits with code 100 if file descriptors can't be closed.
+ *	Exits with code 97 if the argument count is incorrect.
+ *	Exits with code 98 if the source file is inaccessible.
+ *	Exits with code 99 if the destination file can't be written.
+ *	Exits with code 100 if file descriptors can't be closed.
  */
 int main(int argc, char *argv[])
 {
